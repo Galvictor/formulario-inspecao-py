@@ -218,4 +218,5 @@ keys.py
 *.p12
 *.pfx
 
-formulario_inspecao/
+fotos_inspecoes/
+relatorios/
