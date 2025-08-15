@@ -1,0 +1,26 @@
+# Dependências para o Sistema de Inspeção de Equipamentos
+# Baseado no projeto React original
+
+# Geração de PDFs
+reportlab==4.0.4
+
+# Manipulação de imagens
+Pillow>=9.5.0,<10.0.0
+
+# Interface gráfica (incluído no Python)
+# tkinter
+
+# Banco de dados (incluído no Python)
+# sqlite3
+
+# Data e hora (incluído no Python)
+# datetime
+
+# Sistema operacional (incluído no Python)
+# os, shutil
+
+# Tipos (incluído no Python)
+# typing
+
+# Para criar executável (opcional)
+pyinstaller==6.15.0

@@ -1,0 +1,221 @@
+# =============================================================================
+# GITIGNORE PARA PROJETO PYTHON COM PYINSTALLER
+# =============================================================================
+
+# BYTECODE PYTHON
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# DISTRIBUIÇÃO / EMPACOTAMENTO
+# =============================================================================
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PYINSTALLER
+# =============================================================================
+# Arquivos gerados pelo PyInstaller
+# build/
+# dist/
+# __pycache__/
+
+# NOTA: Não ignoramos *.spec para permitir arquivos de configuração do projeto
+# O formulario.spec deve ser versionado para builds consistentes
+
+# AMBIENTES VIRTUAIS
+# =============================================================================
+# Ambientes virtuais Python
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.env/
+
+# IDEs E EDITORES
+# =============================================================================
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# SISTEMA OPERACIONAL
+# =============================================================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# LOGS E ARQUIVOS TEMPORÁRIOS
+# =============================================================================
+# Logs
+*.log
+logs/
+log/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+
+# CACHE E DADOS
+# =============================================================================
+# Cache do pip
+.pip/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Cache do Python
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PYTHON SPECÍFICO
+# =============================================================================
+# Arquivos de configuração local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Arquivos de banco de dados
+*.db
+*.sqlite
+*.sqlite3
+
+# Arquivos de configuração do usuário
+config.ini
+settings.json
+user_config.py
+
+# ARQUIVOS DO PROJETO
+# =============================================================================
+# PDFs gerados (opcional - remova se quiser versionar)
+*.pdf
+*.zip
+
+# Arquivos de teste
+test_output/
+test_results/
+
+# DOCUMENTAÇÃO
+# =============================================================================
+# Sphinx
+docs/_build/
+docs/build/
+
+# MkDocs
+site/
+
+# OUTROS
+# =============================================================================
+# Arquivos de backup
+*.bak
+*.backup
+*.old
+
+# Arquivos de lock
+*.lock
+Pipfile.lock
+poetry.lock
+
+# Arquivos de configuração local
+local_settings.py
+local_config.py
+
+# Arquivos de senha/chave
+secrets.py
+keys.py
+*.key
+*.pem
+*.p12
+*.pfx
+
+formulario_inspecao/

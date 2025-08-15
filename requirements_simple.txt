@@ -1,0 +1,11 @@
+# Dependências para o Sistema de Inspeção de Equipamentos
+# Versão simplificada para melhor compatibilidade
+
+# Geração de PDFs
+reportlab>=3.6.0
+
+# Manipulação de imagens (versão mais estável)
+Pillow>=9.0.0
+
+# Para criar executável (opcional)
+pyinstaller>=5.0.0
