@@ -113,8 +113,8 @@ class InspectionFormApp:
         
         # TAG (será preenchida automaticamente)
         ttk.Label(form_frame, text="TAG:").grid(row=4, column=0, sticky=tk.W, pady=5)
-        self.tag_entry = ttk.Entry(form_frame, textvariable=self.tag_var, state='readonly')
-        self.tag_entry.grid(row=4, column=1, sticky=(tk.W, tk.E), pady=5, padx=(10, 0))
+        self.tag_combobox = ttk.Combobox(form_frame, textvariable=self.tag_var, state='readonly')
+        self.tag_combobox.grid(row=4, column=1, sticky=(tk.W, tk.E), pady=5, padx=(10, 0))
         
         # Terceira linha - Datas
         self.create_field_row(form_frame, 5, "Data da Última Inspeção:", self.ultima_var, 
@@ -246,8 +246,17 @@ class InspectionFormApp:
         tipo = self.tipo_equipamento_var.get()
         if tipo:
             tags = get_tags_por_tipo(tipo)
+            # Atualizar as opções do combobox de TAG
+            self.tag_combobox['values'] = tags
             # Limpar TAG atual
             self.tag_var.set('')
+            # Habilitar o campo TAG
+            self.tag_combobox.config(state='readonly')
+        else:
+            # Desabilitar e limpar TAG se não houver tipo selecionado
+            self.tag_combobox['values'] = []
+            self.tag_var.set('')
+            self.tag_combobox.config(state='disabled')
             
     def on_ultima_inspection_change(self, *args):
         """Atualiza o status quando a data da última inspeção muda"""
@@ -363,21 +372,21 @@ class InspectionFormApp:
     def validate_form(self):
         """Valida os campos obrigatórios"""
         required_fields = [
-            ('plataforma', 'Plataforma'),
-            ('modulo', 'Módulo'),
-            ('setor', 'Setor'),
-            ('tipoEquipamento', 'Tipo de Equipamento'),
-            ('defeito', 'Defeito'),
-            ('causa', 'Causa'),
-            ('categoriaRTI', 'Categoria RTI'),
-            ('recomendacao', 'Recomendação'),
-            ('ultima', 'Data da Última Inspeção'),
-            ('data', 'Data da Inspeção Atual'),
-            ('tipoDano', 'Tipo de Dano')
+            ('plataforma_var', 'Plataforma'),
+            ('modulo_var', 'Módulo'),
+            ('setor_var', 'Setor'),
+            ('tipo_equipamento_var', 'Tipo de Equipamento'),
+            ('defeito_var', 'Defeito'),
+            ('causa_var', 'Causa'),
+            ('categoria_rti_var', 'Categoria RTI'),
+            ('recomendacao_var', 'Recomendação'),
+            ('ultima_var', 'Data da Última Inspeção'),
+            ('data_var', 'Data da Inspeção Atual'),
+            ('tipo_dano_var', 'Tipo de Dano')
         ]
         
         for field_var, field_name in required_fields:
-            value = getattr(self, f"{field_var}_var").get().strip()
+            value = getattr(self, field_var).get().strip()
             if not value:
                 messagebox.showerror("Validação", f"Campo '{field_name}' é obrigatório!")
                 return False
@@ -410,6 +419,10 @@ class InspectionFormApp:
                         'tag_var', 'defeito_var', 'causa_var', 'categoria_rti_var',
                         'recomendacao_var', 'ultima_var', 'data_var', 'tipo_dano_var']:
             getattr(self, var_name).set('')
+            
+        # Limpar TAG combobox
+        self.tag_combobox['values'] = []
+        self.tag_combobox.config(state='disabled')
             
         # Limpar observações
         self.observacoes_text.delete('1.0', tk.END)
